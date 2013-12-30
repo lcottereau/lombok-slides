@@ -1,7 +1,5 @@
-lombok-slides
+_Quickie_ sur Lombok pour [Devoxx France 2014](http://cfp.devoxx.fr/cfp/proposal/new)
 =============
-
-Quickie sur lombok
 
 ## Idée de plan
 
