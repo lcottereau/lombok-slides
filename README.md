@@ -23,7 +23,6 @@ Quickie sur lombok
 * http://projectlombok.org/features/index.html
 * la vidéo sur http://projectlombok.org/
 * http://jnb.ociweb.com/jnb/jnbJan2010.html
-* http://www.parleys.com/play/528b3bf1e4b054cd7d2ef44d
 * http://www.devoxx.com/display/FR12/Depoussierez+votre+code+java+avec+Lombok+!
 * http://www.parleys.com/play/528df66ce4b054cd7d2ef496/chapter0/about
 * la vidéo du paris jug sur lombok ?
