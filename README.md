@@ -10,13 +10,14 @@ Quickie sur lombok
 * expliquer les plus intéressants sur un exemple complet : getters, tostring, data, hascodeandequals, lazy, constructors
 * d'autres rapidement : value, cleanup (java 6-) log, builder
 * indiquer plein d'autres et catégories (stables, expé et [autres](https://github.com/peichhorn/lombok-pg))
-* indiquer problèmes éventuels (intégration IDE, debug, WTF)
+* indiquer problèmes éventuels (intégration outils/IDEs/JVMs/sonar, debug, WTF)
 * conclusion : réduction du nombre de lignes et extraction de la complexité technique pour mettre en valeur le code métier
 
 à étudier
 * extensionmethode
 * value
 * on peut en sortir facilement (delombok)
+* regarder le asfunction
 
 ## Resources
 
@@ -26,24 +27,22 @@ Quickie sur lombok
 * http://www.devoxx.com/display/FR12/Depoussierez+votre+code+java+avec+Lombok+!
 * http://www.parleys.com/play/528df66ce4b054cd7d2ef496/chapter0/about
 * la vidéo du paris jug sur lombok ?
-* regarder le asfunction
 
 ## Soumission à [Devoxx](http://cfp.devoxx.fr/cfp/proposal/new)
 
 ### Titre de la présentation (125)
 
-Les Design Patterns clé en main. La maintenabilité en bonus.
-essayer un truc du genre "devenez super developper que vous n'auriez pas espéré..." ?
+Les _Design Patterns_ clé en main avec Lombok. La maintenabilité en bonus.
 
 ### Résumé de votre présentation pour le participant (500)
 
-Votre code métier est envahid e plomberie "évidente". Bonnes pratiques/design patterns gratuits
+Vous souhaitez appliquer les _design patterns_ reconnus par vos pairs développeurs. Vous souhaitez que ce soit (très) facile. Vous souhaitez par ailleurs que cette plomberie technique ne surcharge pas votre code, pour pouvoir vous concentrer sur le métier. C'est possible grâce au projet Lombok.
 
 ### Message pour le comité de sélection (3500)
 
-parler de l'outil. Insister sur les problématiques de maintenabilité plus que sur la rapidité d'écriture. Parler des problématiques (intégration aux autres outils/IDEs/JVMs/sonar, compréhension des choses complexes, et ?)
+Après avoir expliqué le principe de Lombok, je donnerai des exemples de patterns qui me semblent les plus importants (`@Getter` et `@Setter`, `@Data`, `@Builder`, `@Delegate`,...) et aborderai rapidement certains autres (`@Lazy`, `@Value`, `@Cleanup`, `@Log`,...) Je discuterai de difficultés liées à l'utilisation de l'outil (intégration aux outils de dev, debug, compréhension du code). Pour conclure, j'insisterai sur l'intérêt en terme de maintenabilité plus que sur la rapidité d'écriture ; tout ce qui est code technique _évident_ puisque le résultat d'une sorte de consensus de l'industrie ne pollue pas le code métier.
 
-indiquer que pas depuis quelques temps à devoxx, donc quelques nouveaux trucs et c'est toujours utile pour ceux qui n'étaient pas là avant
+Lombok a déjà été présenté à différentes reprises. Ce quickie vise plutôt les publics qui ne connaissent pas encore le projet. Le format rapide me semble intéressant pour éviter une liste rébarbative de l'ensemble des possibilités de l'outil qui ne remplace pas l'expérience. Par ailleurs, cela me semble adapté pour que les participants puissent repartir avec les bons pointeurs et avoir envie d'expérimenter de leur côté.
 
 ## Agenda
 
