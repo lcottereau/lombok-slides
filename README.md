@@ -12,7 +12,7 @@ _Quickie_ sur [Lombok](http://projectlombok.org/) pour [Devoxx France 2014](http
  * debug
  * compréhension du code
 * Pas d'enfermement grâce à `delombok`
-* Conclusion sur la maintenabilité plus que sur la rapidité d'écriture. Réduction du nombre de lignes et concentration sur le métier. La plomberie/complexité technique n'est pas à maintenir dans le projet
+* Conclusion sur la maintenabilité plus que sur la rapidité d'écriture. Réduction du nombre de lignes et concentration sur le métier (grosse différence avec guava ou apache commons). La plomberie/complexité technique n'est pas à maintenir dans le projet
 
 
 ## Soumission à [Devoxx](http://cfp.devoxx.fr/cfp/proposal/new)
