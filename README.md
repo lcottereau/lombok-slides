@@ -5,7 +5,7 @@ _Quickie_ sur [Lombok](http://projectlombok.org/) pour [Devoxx France 2014](http
 
 * Introduction. Consensus autour de l'implémentation de _Design Patterns_. Annotations.
 * Exemples de patterns qui me semblent importants (`@Getter` et `@Setter`, `@Data`, `@Builder`, `@Delegate`,...)
-* Evocation rapide de certains autres (`@Lazy`, `@XXXConstructors`, `@Value`, `@Cleanup`, `@Log`,...)
+* Evocation rapide de certains autres (`@Lazy`, `@XXXConstructors`, `@Value`, `@Cleanup`, `@Log`,...) Indiquer pour `@Value` que cela permet (en plus du code généré) de documenter facilement [l'immutabilité](http://stackoverflow.com/questions/3407403/whats-the-advantage-of-a-string-being-immutable).
 * Pointeurs sur les référentiels ([stables](http://projectlombok.org/features/), [expérimentaux](http://projectlombok.org/features/experimental/) et [playground](https://github.com/peichhorn/lombok-pg)) et possibilité de créer ses extension.
 * Difficultés
  * intégration avec les outils de dev (plugins IDEs, mises à jour JVM, sonar)
