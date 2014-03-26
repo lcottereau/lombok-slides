@@ -11,6 +11,7 @@ _Quickie_ sur [Lombok](http://projectlombok.org/) pour [Devoxx France 2014](http
  * intégration avec les outils de dev (plugins IDEs, mises à jour JVM, sonar)
  * debug
  * compréhension du code
+ * mesurer l'impact (performances par exemple avec `@toString`)
 * Pas d'enfermement grâce à `delombok`
 * Conclusion sur la maintenabilité plus que sur la rapidité d'écriture. Réduction du nombre de lignes et concentration sur le métier (grosse différence avec guava ou apache commons). La plomberie/complexité technique n'est pas à maintenir dans le projet
 
