@@ -54,6 +54,10 @@
 		    .reveal a:not(.image):hover {
 		        text-decoration: underline;
 		    }
+		    html:not(.no-background) .present {
+		    	background-color: rgba(0, 0, 0, 0.8);
+		    	border-radius: 10px;
+		    }
 		</style>
 	</head>
 
@@ -62,7 +66,7 @@
 		<div class="reveal">
 
 			<div class="slides">
-				<section data-background="img/slide-lombok.jpg">
+				<section data-background="img/slide-lombok.jpg" data-state="no-background">
 					<h1>Lombok</h1>
 					<p>Les «&#8239;<span lang="en">design patterns</span>&#8239;» clés en main</p>
 					<p>La maintenabilité en bonus</p>
@@ -82,7 +86,7 @@
 					</ul>
 				</section>
 
-				<section data-background="img/slide-dingle.jpg">
+				<section data-background="img/slide-dingle.jpg" data-state="no-background">
 		            <h1>Merci</h1>
 		            <ul>
 		              <li class="email"><a href="mailto:laurent@cottereau.name"><code>laurent@cottereau.name</code></a></li>
