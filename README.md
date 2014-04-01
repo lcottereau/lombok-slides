@@ -13,6 +13,7 @@ _Quickie_ sur [Lombok](http://projectlombok.org/) pour [Devoxx France 2014](http
  * compréhension du code
  * mesurer l'impact (performances par exemple avec `@toString`)
 * Points forts
+ * l'annotation documente l'_intention_ du dévelopeur, pas l'_implémentation_, idéal pour la maintenabilité
  * remaniement facile car seulement à la compilation
  * ne noie pas le code métier, la plus value
  * mise en place échelonnée possible
