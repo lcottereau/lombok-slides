@@ -82,14 +82,14 @@
 
 						<p>Petit point sur l'utilisation. Si vous utilisez un autre IDE que Netbeans, il y a une petite installation à faire pour qu'il découvre le code source intermédiaire. Ensuite, de manière générale, le jar dans le classpath à la compilation est suffisant et rien n'est nécessaire au runtime. Pour maven, c'est facile :</p>
 
-						<blockquote><code>
+						<pre><code>
 							&lt;dependency>
 							&nbsp;&nbsp;&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
 							&nbsp;&nbsp;&lt;artifactId&gt;lombok&lt;/artifactId&gt;
 							&nbsp;&nbsp;&lt;version&gt;1.12.6&lt;/version&gt;
 							&nbsp;&nbsp;&lt;scope&gt;provided&lt;/scope&gt;
 							&lt;/dependency&gt;
-						</code></blockquote>
+						</code></pre>
 
 						<p>Avant (tempête, brouillard, etc...) : une grosse classe JPA très longue avec toString, equals, hashcode, getters (dont un lazy), setters, constructeurs avec arguments requis. Etapes avec météo qui s'améliore pour chacun des cas. Dernier slide sur grand ciel bleu avec l'annotation data</p>
 
