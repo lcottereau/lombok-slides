@@ -84,16 +84,6 @@
 
 						<p>Pour un grand nombre de patterns, il y a une sorte de consensus du monde professionel, voire des standards documentés (java beans). Dans ces cas-là, on se retrouve à prendre un livre de design patterns, chercher celui qui lui convient et à recopier le code et on finit même par les connaître par coeur (lazy-loading). Pour le développeur (feignant donc), c'est absolument insupportable. Les IDE ont résolu ça depuis pas mal de temps : des outils permettent de générer du code. Mais cela résiste (très) mal aux remaniements. Parfois guava, apache-commons, java 7 ont introduit des méthodes supplémentaires (faire un exemple) mais c'est lourd à appeler. C'est là que lombok intervient : le principe consiste à décider de l'utilisation d'un design pattern via une annotation sur une classe, méthode ou attribut. Le code est généré à la compilation.</p>
 
-						<p>Petit point sur l'utilisation. Si vous utilisez un autre IDE que Netbeans, il y a une petite installation à faire pour qu'il découvre le code source intermédiaire. Ensuite, de manière générale, le jar dans le classpath à la compilation est suffisant et rien n'est nécessaire au runtime. Pour maven, c'est facile :</p>
-
-						<pre><code>
-							&lt;dependency>
-							&nbsp;&nbsp;&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
-							&nbsp;&nbsp;&lt;artifactId&gt;lombok&lt;/artifactId&gt;
-							&nbsp;&nbsp;&lt;version&gt;1.12.6&lt;/version&gt;
-							&nbsp;&nbsp;&lt;scope&gt;provided&lt;/scope&gt;
-							&lt;/dependency&gt;
-						</code></pre>
 
 						<p>Avant (tempête, brouillard, etc...) : une grosse classe JPA très longue avec toString, equals, hashcode, getters (dont un lazy), setters, constructeurs avec arguments requis. Etapes avec météo qui s'améliore pour chacun des cas. Dernier slide sur grand ciel bleu avec l'annotation data</p>
 
@@ -113,6 +103,25 @@
 						<p>Mais à ces points d'attention près, rien ne vous empêche d'essayer : on peut mettre en place de manière échelonnée sur un projet, et on n'est jamais enfermé car <code>delombok</code> permet toujours de récupérer le code source correspondant. Et le gain est tout de suite perceptible : d'abord parce que c'est plus rapide pour coder une classe mais ce n'est pas ça le principal.</p>
 
 						<p>Surtout, c'est un outil excellent pour la maintenabilité : la lisibilité est facilité en se concentrant sur la plus-value du code (différenciateur par rapport aux autres produits) sans rogner sur la capacité à remanier. L'utilisation des annotations permet de se concentrer sur l'intention du développeur plutôt que sur l'implémentation.</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Utilisation</h2>
+					<pre><code>
+						&lt;dependency>
+						&nbsp;&nbsp;&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+						&nbsp;&nbsp;&lt;artifactId&gt;lombok&lt;/artifactId&gt;
+						&nbsp;&nbsp;&lt;version&gt;1.12.6&lt;/version&gt;
+						&nbsp;&nbsp;&lt;scope&gt;provided&lt;/scope&gt;
+						&lt;/dependency&gt;
+					</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>si pas Netbeans : installation (via <code>lombok.jar</code> ou plugin)</li>
+							<li>le <code>jar</code> dans le <code>CLASSPATH</code> lors de la compilation est suffisant</li>
+							<li>rien au runtime</li>
+						</ul>
 					</aside>
 				</section>
 
