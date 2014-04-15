@@ -86,7 +86,6 @@
 
 
 
-						<p>Avant (tempête, brouillard, etc...) : une grosse classe JPA très longue avec toString, equals, hashcode, getters (dont un lazy), setters, constructeurs avec arguments requis. Etapes avec météo qui s'améliore pour chacun des cas. Dernier slide sur grand ciel bleu avec l'annotation data</p>
 
 						<p>D'autres qui peuvent être utiles</p>
 
@@ -640,6 +639,14 @@ public class Controle implements Serializable {
     }
 }	
 					</code></pre>
+					<aside class="notes">
+						<ul>Une classe JPA assez classique avec
+							<li>du code métier</li>
+							<li>des getters (dont un <em>à la demande</em>) et des setters</li>
+							<li>un constructeur "minimal" (arguments finaux non définis)</li>
+							<li>des classes utilitaires (<code>toString</code>, <code>equals</code>, <code>hashCode</code>)</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section>
