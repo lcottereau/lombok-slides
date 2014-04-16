@@ -912,6 +912,26 @@ public class Controle implements Serializable {
 					</aside>
 				</section>
 
+				<section>
+					<h2>D'autres exemples</h2>
+					<ul>
+						<li class="fragment"><code>@Delegate</code></li>
+						<li class="fragment"><code>@Value</code></li>
+						<li class="fragment"><code>@Log</code></li>
+						<li class="fragment"><code>@Builder</code>
+					</ul>
+					<pre class="fragment"><code>SuperHero.builder().name("Superman").from("Krypton").alias("Clark").build();</code></pre></li>
+					<aside class="notes">
+						<ul>
+							<li>déléguer l'exécution d'une partie des tâches. classique en objet. plomberie lourde</li>
+							<li>classe immutable sans risque d'oubli, et bien documentée</li>
+							<li>pas besoin de se rappeler de la ligne à écrire, et cohérence des clés</li>
+							<li>interface fluide d'instanciation</li>
+							<li><a hreflang="en" href="http://projectlombok.org/features/">stables</a>, <a hreflang="en" href="http://projectlombok.org/features/experimental/">expérimentaux (officiels)</a>, <a hreflang="en" href="https://github.com/peichhorn/lombok-pg">playground (externes)</a> ou perso</li>
+						</ul>
+					</aside>
+				</section>
+
 				<section data-background="img/slide-beer.jpg" data-state="light-background">
 					<h2>Crédits</h2>
 					<ul>
