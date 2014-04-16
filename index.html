@@ -76,42 +76,62 @@
 					<p>La maintenabilité en bonus</p>
 					<aside class="notes">
 						<ul>
-							<li>Qui ici a déjà fait des écrans de <acronym lang="en" title="Create, Read, Update, Delete">CRUD</acronym> ? Du MCV ?</li>
-							<li>Qui ici écrit presque chaque jour un getter ou un setter ?</li>
+							<li>Qui a fait du <acronym lang="en" title="Create, Read, Update, Delete">CRUD</acronym> ou du MVC à la main dans la dernière année ?</li>
+							<li>Qui a écrit un getter ou un setter à la main dans la dernière année ?</li>
+							<li>Qui ici trouve ça pénible ?</li>
 						</ul>
 					</aside>
 				</section>
 
-				<section>
+				<section data-background="img/slide-problems.jpg" data-state="light-background">
 					<p>Nous avons tous les mêmes problèmes</p>
 					<aside class="notes">
 						<ul>
-							<li>Les design patterns (motifs d'architecture logicielle) apportent des solutions <em>classique</em> à ces problèmes <em>classiques</em></li>
-							<li>Validées par l'expérience et celle de la communauté :
+							<li>Pas la multiplication de chatons : avis partagés</li>
+							<li>Se concentrer sur ce qui nécessite de la créativité</li>
+							<li>Aux problèmes <em>classiques</em> des solutions <em>classiques</em></li>
+							<li>Les design patterns (motifs d'architecture logicielle)</li>
+							<li>Je ne veux pas y passer de temps</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background="img/slide-books.jpg" data-state="light-background">
+					<p>La différence entre le bon développeur et le mauvais développeur...</p>
+					<aside class="notes">
+						<ul>
+							<li><em>J'ai un ami</em> étudiant développeur qui a eu des cours</li>
+							<li>Pénible, rébarbatif et abstrait (faute des profs ?)</li>
+							<li>Ce n'est pas moi, c'est un pote</li>
+							<li>Quand même diplômé et travail concret</li>
+							<li>Pas besoin de patterns ? (patterns de sécu)</li>
+							<li>Consensus du monde professionel, standards (beans)
 								<ul>
-									<li><a hreflang="en" href="http://www.artima.com/lejava/articles/equality.html">très difficile d'écrire une méthode <code>equals</code> correcte</a></li>
+									<li><a hreflang="en" href="http://www.artima.com/lejava/articles/equality.html">vos méthodes <code>equals</code> et héritage</a></li>
 									<li>penser à utiliser <code>@ConstructorProperties</code></li>
 									<li>gérer le <span lang="en">thread-safe</span> sur un calcul d'attribut à la demande</li>
 								</ul>
 							</li>
-							<li>Les plus utilisés ont droit à un nom</li>
 						</ul>
 					</aside>
 				</section>
 
-				<section>
-					<p>C'est l'histoire d'un pote</p>
+				<section data-background="img/slide-outillage.jpg" data-state="light-background">
+					<p>Outillage</p>
 					<aside class="notes">
-						<p>"J'ai un ami" étudiant développeur qui a eu des cours sur les design patterns mais a trouvé ça très pénible, rébarbatif et abstrait (il dit que c'est la faut des professeurs qui lui ont asséné des piles de livres sans fin mais c'est peut-être aussi qu'il était occupé à draguer au bar de l'université) et ne s'en est pas trop préoccupé. Malgré tout, il a eu son diplôme et il a commencé à travailler dans le concret, et finit par se faire son petit répertoire de code et d'habitudes qu'il réutilise de projet en projet sans réaliser qu'il est en train de réinventer la roue. Puis le vocabulaire revenant sans cesse, il réalise alors que ce qu'il a fait a été mieux fait ailleurs. Ce qu'il a n'est au mieux pas terrible, et parfois complètement faux (qui a déjà essayé de réimplémenter des patterns de sécurité ?).</p>
-
-						<p>Pour un grand nombre de patterns, il y a une sorte de consensus du monde professionel, voire des standards documentés (java beans). Dans ces cas-là, on se retrouve à prendre un livre de design patterns, chercher celui qui lui convient et à recopier le code et on finit même par les connaître par coeur (lazy-loading). Pour le développeur (feignant donc), c'est absolument insupportable. Les IDE ont résolu ça depuis pas mal de temps : des outils permettent de générer du code. Mais cela résiste (très) mal aux remaniements. Parfois guava, apache-commons, java 7 ont introduit des méthodes supplémentaires (faire un exemple) mais c'est lourd à appeler. C'est là que lombok intervient (dans le même type que frameworks ou bibliothèques) : le principe consiste à décider de l'utilisation d'un design pattern via une annotation sur une classe, méthode ou attribut. Le code est généré à la compilation.</p>
 						<ul>
-							<li><em>toute ressemblance...</em> : moi il ne m'a pas fallu longtemps pour faire autrement</li>
+							<li>Recopie depuis livres, par coeur : insupportable car feignant</li>
+							<li>IDE a proposé la génération de getters</li>
+							<li>remaniement difficile</li>
+							<li>guava propose <code>Objects</code> (apache-commons, java 7)</li>
+							<li>plomberie apparente</li>
+							<li>lombok propose des annotations, codé à la compilation</li>
+							<li>pour du bas-niveau (on a déjà des frameworks pour l'archi globale)</li>
 						</ul>
 					</aside>
 				</section>
 
-				<section>
+				<section data-background="img/slide-large.jpg">
 					<h2>Un cas typique</h2>
 					<pre><code>
 /**
@@ -199,18 +219,18 @@ public class Controle implements Serializable {
     private GroupePolitique groupePolitique;
     @ManyToMany
     @JoinTable(name = "CONTROLE_ORG", joinColumns = @JoinColumn(name = FOREIGN_KEY_ID), inverseJoinColumns = @JoinColumn(name = "ORGCOD"))
-    private Set<Organisme> organismes = new HashSet<Organisme>();
+    private Set&lt;Organisme&gt; organismes = new HashSet&lt;Organisme&gt;();
     @ManyToMany
     @JoinTable(name = "CONTROLE_LOI", joinColumns = @JoinColumn(name = FOREIGN_KEY_ID), inverseJoinColumns = @JoinColumn(name = "LOICOD"))
-    private Set<Loi> lois = new HashSet<Loi>();
+    private Set&lt;Loi&gt; lois = new HashSet&lt;Loi&gt;();
     @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn(name = FOREIGN_KEY_ID, nullable = false)
-    private Set<LivrableControle> livrables = new HashSet<LivrableControle>();
+    private Set&lt;LivrableControle&gt; livrables = new HashSet&lt;LivrableControle&gt;();
     @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
     @JoinColumn(name = FOREIGN_KEY_ID, nullable = false)
     @OrderBy("id asc")
-    private Set<ActeurControle> acteurs = new HashSet<ActeurControle>();
-    private final java.util.concurrent.AtomicReference<java.lang.Object> themes = new java.util.concurrent.AtomicReference<java.lang.Object>();
+    private Set&lt;ActeurControle&gt; acteurs = new HashSet&lt;ActeurControle&gt;();
+    private final java.util.concurrent.AtomicReference&lt;java.lang.Object&gt; themes = new java.util.concurrent.AtomicReference&lt;java.lang.Object&gt;();
 
 
     public Controle() {
@@ -268,35 +288,35 @@ public class Controle implements Serializable {
         return this.groupePolitique;
     }
 
-    public Set<Organisme> getOrganismes() {
+    public Set&lt;Organisme&gt; getOrganismes() {
         return this.organismes;
     }
 
-    public Set<Loi> getLois() {
+    public Set&lt;Loi&gt; getLois() {
         return this.lois;
     }
 
-    public Set<LivrableControle> getLivrables() {
+    public Set&lt;LivrableControle&gt; getLivrables() {
         return this.livrables;
     }
 
-    public Set<ActeurControle> getActeurs() {
+    public Set&lt;ActeurControle&gt; getActeurs() {
         return this.acteurs;
     }
 
-    public Set<Theme> getThemes() {
+    public Set&lt;Theme&gt; getThemes() {
         java.lang.Object value = this.themes.get();
         if (value == null) {
             synchronized(this.themes) {
                 value = this.themes.get();
                 if (value == null) {
-                    final Set<Theme> actualValue = Cache.getInstance().calculateThemes();
+                    final Set&lt;Theme&gt; actualValue = Cache.getInstance().calculateThemes();
                     value = actualValue == null ? this.themes : actualValue;
                     this.themes.set(value);
                 }
             }
         }
-        return (Set<Theme>)(value == this.themes ? null : value);
+        return (Set&lt;Theme&gt;)(value == this.themes ? null : value);
      }
 
     public void setId(final Integer id) {
@@ -351,23 +371,23 @@ public class Controle implements Serializable {
         this.groupePolitique = groupePolitique;
     }
 
-    public void setOrganismes(final Set<Organisme> organismes) {
+    public void setOrganismes(final Set&lt;Organisme&gt; organismes) {
         this.organismes = organismes;
     }
 
-    public void setLois(final Set<Loi> lois) {
+    public void setLois(final Set&lt;Loi&gt; lois) {
         this.lois = lois;
     }
 
-    public void setLivrables(final Set<LivrableControle> livrables) {
+    public void setLivrables(final Set&lt;LivrableControle&gt; livrables) {
         this.livrables = livrables;
     }
 
-    public void setActeurs(final Set<ActeurControle> acteurs) {
+    public void setActeurs(final Set&lt;ActeurControle&gt; acteurs) {
         this.acteurs = acteurs;
     }
 
-    public void setThemes(final Set<Theme> themes) {
+    public void setThemes(final Set&lt;Theme&gt; themes) {
         this.themes = themes;
     }
     
@@ -390,7 +410,7 @@ public class Controle implements Serializable {
      * un contrôle en cours prendra le nom à la date du jour alors qu'un contrôle fini prendra le nom à la date
      * d'échéance.
      *
-     * @return le libellé préfixé de l'article. <code>null</code> si le groupe politique n'est pas défini.
+     * @return le libellé préfixé de l'article. &lt;code&gt;null&lt;/code&gt; si le groupe politique n'est pas défini.
      */
     public String getLibelleLongEtArticleGroupePolitique() {
         if (groupePolitique != null) {
@@ -406,7 +426,7 @@ public class Controle implements Serializable {
     /**
      * Détermine si le contrôle est fini.
      *
-     * @return <code>true</code> si le contrôle est fini.
+     * @return &lt;code&gt;true&lt;/code&gt; si le contrôle est fini.
      */
     public boolean isClosed() {
         return echeance != null && echeance.getDate().isBefore(LocalDate.now());
@@ -443,11 +463,11 @@ public class Controle implements Serializable {
      * Indique si un contrôle peut être reporté. C'est le cas si l'échéance correspond à une session strictement
      * postérieure supérieure à la session de report actuelle.
      *
-     * @return <code>true</code> si le contrôle peut être reporté. <code>false</code> sinon.
+     * @return &lt;code&gt;true&lt;/code&gt; si le contrôle peut être reporté. &lt;code&gt;false&lt;/code&gt; sinon.
      */
     public boolean canReporteControle() {
         if (echeance.getDate() != null) {
-            return (getDernierProgramme() < echeance.getSession());
+            return (getDernierProgramme() &lt; echeance.getSession());
         } else {
             return false;
         }
@@ -458,11 +478,11 @@ public class Controle implements Serializable {
      *
      * @param date la date dont on cherche la session.
      * @return la session, représentée par l'année de démarrage de la session (2013 pour la session 2013-2014 par
-     * exemple). <code>null</code> si la date en paramètre est nulle.
+     * exemple). &lt;code&gt;null&lt;/code&gt; si la date en paramètre est nulle.
      */
     public static Integer getSession(LocalDate date) {
         if (date != null) {
-            if (date.getMonthOfYear() < OCTOBER) {
+            if (date.getMonthOfYear() &lt; OCTOBER) {
                 return date.getYear() - 1;
             } else {
                 return date.getYear();
@@ -488,7 +508,7 @@ public class Controle implements Serializable {
      * @param fin l'année de fin d'activité spécifiée dans le formulaire.
      */
     public void setFinActivite(int fin) {
-        if (fin > getProgrammeCreation() + 1) {
+        if (fin &gt; getProgrammeCreation() + 1) {
             setProgrammeReport(fin - 1);
         } else {
             setProgrammeReport(null);
@@ -594,19 +614,20 @@ public class Controle implements Serializable {
     public java.lang.String toString() {
         return "Controle(id=" + this.getId() + ", libelle=" + this.getLibelle() + ", objet=" + this.getObjet() + ", url=" + this.getUrl() + ", initiativeDesGroupes=" + this.isInitiativeDesGroupes() + ", courDesComptes=" + this.isCourDesComptes() + ", programmeCreation=" + this.getProgrammeCreation() + ", programmeReport=" + this.getProgrammeReport() + ", dateCreation=" + this.getDateCreation() + ", cloture=" + this.isCloture() + ", avecRapport=" + this.isAvecRapport() + ", echeance=" + this.getEcheance() + ")";
     }
-}	
-					</code></pre>
+}
+				</code></pre>
 					<aside class="notes">
-						<ul>Une classe JPA assez classique avec
+						<ul>Une classe JPA assez touffue avec
 							<li>du code métier</li>
 							<li>des getters (dont un <em>à la demande</em>) et des setters</li>
 							<li>un constructeur "minimal" (arguments finaux non définis)</li>
 							<li>des classes utilitaires (<code>toString</code>, <code>equals</code>, <code>hashCode</code>)</li>
+							<li>la valeur ajoutée est noyée</li>
 						</ul>
 					</aside>
 				</section>
 
-				<section>
+				<section data-background="img/slide-calm.jpg">
 					<h2>Utilisation</h2>
 					<pre><code>
 						&lt;dependency>
@@ -629,15 +650,22 @@ public class Controle implements Serializable {
 					<h2>Les plus simples</h2>
 					<ul lang="en">
 						<li><code>@ToString</code></li>
-						<li><code>@EqualsAndHashCode</code></li>
-						<li><code>@Getter<span>(lazy=true)</span></code></li>
-						<li><code>@Setter</code></li>
-						<li><code>@RequiredArgsConstructor</code></li>
+						<li class="fragment"><code>@EqualsAndHashCode</code></li>
+						<li class="fragment"><code>@Getter<span class="fragment">(lazy=true)</span></code></li>
+						<li class="fragment"><code>@Setter</code></li>
+						<li class="fragment"><code>@RequiredArgsConstructor</code></li>
+						<li class="fragment"><code>@Data</code></li>
 					</ul>
+					<aside class="notes">
+						<ul>
+							<li><code>toString</code> classiquement utilisé pour le debug</li>
+							<li>ces annotations sont <a hreflang="en" href="http://projectlombok.org/features/index.html">documentées</a> en ligne</li>
+						</ul>
+					</aside>
 				</section>
 
+<!--
 				<section>
-					<p><code>@Data</code></p>
 					<pre><code>
 /**
  * Copyright Sénat.
@@ -875,8 +903,9 @@ public class Controle implements Serializable {
 }
 					</code></pre>
 				</section>
+-->
 
-				<section data-state="code-extracts">
+				<section data-background="img/slide-fireworks.jpg" data-state="code-extracts">
 					<h2>Gain</h2>
 					<p>
 						<img alt="avant : 481 lignes de code" src="img/java-before.png"/>
@@ -893,7 +922,7 @@ public class Controle implements Serializable {
 				<section>
 					<h2>D'autres exemples</h2>
 					<ul>
-						<li class="fragment"><code>@Delegate</code></li>
+						<li><code>@Delegate</code></li>
 						<li class="fragment"><code>@Value</code></li>
 						<li class="fragment"><code>@Log</code></li>
 						<li class="fragment"><code>@Builder</code>
@@ -905,30 +934,30 @@ public class Controle implements Serializable {
 							<li>classe immutable sans risque d'oubli, et bien documentée</li>
 							<li>pas besoin de se rappeler de la ligne à écrire, et cohérence des clés</li>
 							<li>interface fluide d'instanciation</li>
-							<li><a hreflang="en" href="http://projectlombok.org/features/">stables</a>, <a hreflang="en" href="http://projectlombok.org/features/experimental/">expérimentaux (officiels)</a>, <a hreflang="en" href="https://github.com/peichhorn/lombok-pg">playground (externes)</a> ou perso</li>
+							<li>16 <a hreflang="en" href="http://projectlombok.org/features/">stables</a>, 6 <a hreflang="en" href="http://projectlombok.org/features/experimental/">expérimentaux (officiels)</a>, 30 <a hreflang="en" href="https://github.com/peichhorn/lombok-pg">playground (externes)</a> ou perso</li>
 						</ul>
 					</aside>
 				</section>
 
-				<section>
+				<section data-background="img/slide-warning.jpg" data-state="light-background">
 					<h2>Points d'attention</h2>
 					<aside class="notes">
 						<ul>
-							<li>mise en place échelonnée pour comprendre les impacts</li>
+							<li>mise en place échelonnée pour comprendre les impacts (<code>delombok</code> si problème)</li>
 							<li>code moins maîtrisé : <code lang="en">StackOverflow</code> avec <code>@toString</code> par <abbr title="exemple">ex.</abbr></li>
+							<li>penser au <code>exclude</code> dans ce cas-là</li>
 							<li>debug difficile : rester sur le testé</li>
 						</ul>
 					</aside>
 				</section>
 
-				<section>
+				<section data-background="img/slide-ok.jpg">
 					<h2>Maintenabilité</h2>
 					<blockquote>Exprimer l'intention</blockquote>
 					<aside class="notes">
 						<ul>
 							<li>Code plus sûr, plus lisible</li>
 							<li>Concentré sur la valeur ajoutée</li>
-							<li>Capacité à remanier</li>
 							<li>Les annotations permettent d'exprimer l'intention plutôt que l'implémentation</li>
 							<li>Clé de la maintenabilité</li>
 						</ul>
@@ -938,17 +967,29 @@ public class Controle implements Serializable {
 				<section data-background="img/slide-beer.jpg" data-state="light-background">
 					<h2>Crédits</h2>
 					<ul>
-						<li>Logiciels : 
+						<li><em>Logiciels</em> : 
 							<a hreflang="en" href="http://lab.hakim.se/reveal-js/">reveal.js</a>, 
 							<a hreflang="en" href="http://simpleicons.org/">simple icons</a>
 						</li>
-						<li>Photos : 
+						<li><em>Photos</em> : 
+							<a hreflang="en" href="https://secure.flickr.com/photos/abee5/8314929977/">Abhi Sharma</a>, 
 							<a hreflang="en" href="https://secure.flickr.com/photos/fadilfb/512828077/">Fadil Basymeleh</a>,
 							<a hreflang="en" href="http://www.linkedin.com/in/florentmathe">Florent Mathé</a>,
-							<a hreflang="en" href="http://www.flickr.com/people/40939157@N03">Nigel Howe</a>,
-							<a hreflang="en" href="https://secure.flickr.com/photos/33284937@N04/8976442461/">Nikos Koutoulas</a>
+							<a hreflang="en" href="http://frank.itlab.us/photo_essays/wrapper.php?feb_14_2009_mapur.html">Frank Starmer</a>, 
+							<a hreflang="en" href="https://secure.flickr.com/photos/unavoidablegrain/4070656943/">Greg Borenstein</a>, 
+							<a hreflang="en" href="https://commons.wikimedia.org/wiki/File:Gadget_the_pug_expressive_eyes.jpg">Joseph Matthew Miller</a>, 
+							<a hreflang="en" href="https://secure.flickr.com/photos/indoloony/3062470964/">Joy Banerjee</a>, 
+							<a hreflang="en" href="https://commons.wikimedia.org/wiki/File:Electricity_warning_sign_in_Spain.jpg">Lali Masriera</a>, 
+							<a hreflang="en" href="https://secure.flickr.com/photos/sumofmarc/6315756873/">Marc</a>, 
+							<a hreflang="en" href="https://en.wikipedia.org/wiki/File:Wea00816.jpg" lang="en">U.S. National Oceanic and Atmospheric Administration</a>
 						</li>
 					</ul>
+					<aside class="notes">
+						<ul>
+							<li>si dans la salle, je leur paie une bière non virtuelle</li>
+							<li>dans le même esprit de partage, partagé sur github</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section data-background="img/slide-dingle.jpg">
@@ -973,7 +1014,7 @@ public class Controle implements Serializable {
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false,
 				progress: true,
 				history: true,
 				center: true,
