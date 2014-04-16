@@ -83,28 +83,6 @@
 				</section>
 
 				<section>
-					<aside class="notes">
-
-						<p>D'autres qui peuvent être utiles</p>
-
-						<ul>
-							<li>Le Builder permet de disposer facilement d'une interface fluide d'instanciation (exemple avec un chouette thème, superman ?)</li>
-							<li>La délégation permet de faire suivre à une autre classe l'exécution d'une tâche. C'est souvent utile en architecture logicielle et devrait aider à la lisibilité mais la plomberie nécessaire est lourdre</li>
-							<li>Value permet de documenter et générer une classe immutable</li>
-							<li>XXXLog permet de mettre en cohérence la gestion des logs (juste une ligne)</li>
-						</ul>
-
-						<p>De nombreuses annotations sont disponibles : <a hreflang="en" href="http://projectlombok.org/features/">stables</a>, <a hreflang="en" href="http://projectlombok.org/features/experimental/">expérimentaux (officiels)</a> et <a hreflang="en" href="https://github.com/peichhorn/lombok-pg">playground (externes au projet)</a>. On peut en effet créer ses propres extensions</p>
-
-						<p>Mais attention ! Les premiers pas avec lombok ont tendance à dégénérer. Tout le monde sait ce qu'un getter fait et comment c'est fait. Des annotations plus complexes ne seront pas forcément évidentes et peuvent compliquer la lisibilité, voire les performances (des toString qui bouclent ou sur des collections par exemple). Si c'est quelque chose de spécifique au projet ou bien quelque chose dont l'implémentation n'est pas connue, il vaut peut-être mieux regarder du côté de l'aspect ou d'autres architectures. Par ailleurs, le debug n'est pas facile puisque l'IDE ne dispose pas du code source</p>
-
-						<p>Mais à ces points d'attention près, rien ne vous empêche d'essayer : on peut mettre en place de manière échelonnée sur un projet, et on n'est jamais enfermé car <code>delombok</code> permet toujours de récupérer le code source correspondant. Et le gain est tout de suite perceptible : d'abord parce que c'est plus rapide pour coder une classe mais ce n'est pas ça le principal.</p>
-
-						<p>Surtout, c'est un outil excellent pour la maintenabilité : la lisibilité est facilité en se concentrant sur la plus-value du code (différenciateur par rapport aux autres produits) sans rogner sur la capacité à remanier. L'utilisation des annotations permet de se concentrer sur l'intention du développeur plutôt que sur l'implémentation.</p>
-					</aside>
-				</section>
-
-				<section>
 					<p>Nous avons tous les mêmes problèmes</p>
 					<aside class="notes">
 						<ul>
